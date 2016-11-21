@@ -1,5 +1,19 @@
 FROM python:3.5
 
+RUN apt-get update -qq && \
+  apt-get upgrade -qqy && \
+  apt-get install software-properties-common && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update -qq && \
+  apt-get upgrade -qqy && \
+  apt-get install -qqy software-properties-common aptitude && \
+  apt-add-repository -y ppa:git-core/ppa && \
+  apt-get update -qq && \
+  apt-get upgrade -qqy && \
+  apt-get install -qqy git curl unzip wget doxygen && \
+  rm -rf /var/lib/apt/lists/*
+
 # java
 RUN apt-add-repository -y ppa:webupd8team/java && \
   apt-get update -qq && \
