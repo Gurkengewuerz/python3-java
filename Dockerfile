@@ -2,7 +2,7 @@ FROM python:3.5
 
 RUN apt-get update -qq && \
   apt-get upgrade -qqy && \
-  apt-get install software-properties-common && \
+  apt-get install -y software-properties-common && \
   rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update -qq && \
